@@ -10,19 +10,38 @@ def main():
     modeling_map.print_map_layers(root)
     
     # The map template contains a list of every layer to be deleted
-    template_empty_map = [
-                            'landmass', 
-                            'ocean', 
-                            'lakes', 
-                            'texture', 
-                            'terrs', 
-                            'biomes', 
-                            'cells', 
-                            'coordinates', 
-                            'rivers', 
-                            'terrain', 
-                            'regions'
-                            ]
+    template_empty_map = [ 
+                          'ocean',
+                          'lakes',
+                        #   'landmass',
+                          'texture',
+                          'terrs',
+                          'biomes',
+                          'cells',
+                          'gridOverlay',
+                          'coordinates',
+                          'compass',
+                          'rivers',
+                          'terrain',
+                          'relig',
+                          'cults',
+                          'regions',
+                          'provs',
+                          'zones',
+                          'borders',
+                          'routes',
+                          'temperature',
+                          'coastlines',
+                          'ice',
+                          'prec',
+                          'population',
+                          'labels',
+                          'icons',
+                          'armies',
+                          'markers',
+                          'ruler',
+                          'coastline'
+                          ]
     
     root = modeling_map.remove_multiple_layers(root, template_empty_map)
 
