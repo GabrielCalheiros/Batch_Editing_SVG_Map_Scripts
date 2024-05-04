@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 
+# Delete an layer of the map
 def delete_map_layer(root, layer_name):
     for child in root:
         # If id of the child is viewbox, then print its children
@@ -19,27 +20,29 @@ def print_map_layers(root):
                 # Layers of the SVG Map
                 print(grandchild.tag, grandchild.attrib)
 
+def remove_multiple_layers(root, layer_list):
+    
+    for layer in layer_list:
+        root = delete_map_layer(root, layer)
+    
+    return root
+
 def main():
     
-    tree = ET.parse('Cania 2024-05-04-08-35.svg')
+    # Loading the map with all the layers
+    tree = ET.parse('fantasy_map.svg')
     root = tree.getroot()
     
     print_map_layers(root)
-    root = delete_map_layer(root, 'landmass')
-    root = delete_map_layer(root, 'ocean')
-    root = delete_map_layer(root, 'lakes')
-    root = delete_map_layer(root, 'texture')
-    root = delete_map_layer(root, 'terrs')
-    root = delete_map_layer(root, 'biomes')
-    root = delete_map_layer(root, 'cells')
-    root = delete_map_layer(root, 'coordinates')
-    root = delete_map_layer(root, 'rivers')
-    root = delete_map_layer(root, 'terrain')
-    root = delete_map_layer(root, 'regions')
+    
+    # The map template contains a list of every layer to be deleted
+    template_empty_map = ['landmass', 'ocean', 'lakes', 'texture', 'terrs', 'biomes', 'cells', 'coordinates', 'rivers', 'terrain', 'regions']
+    root = remove_multiple_layers(root, template_empty_map)
+
 
     print("\n\n\n\n")
     print_map_layers(root)
-
+    
                     
         
 if __name__ == "__main__":
