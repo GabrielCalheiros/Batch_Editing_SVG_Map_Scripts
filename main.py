@@ -33,7 +33,7 @@ def main():
                           'temperature',
                           'coastlines',
                           'ice',
-                          'prec',
+                          'prec', # Precipitation
                           'population',
                           'labels',
                           'icons',
@@ -45,9 +45,12 @@ def main():
     
     root = modeling_map.remove_multiple_layers(root, template_empty_map)
 
-
-    print("\n\n\n\n")
+    print("\n"*3)
+    
     modeling_map.print_map_layers(root)
+    
+    # Saving the new map
+    tree.write('fantasy_map_empty.svg', encoding='utf-8', xml_declaration=True)
     
                     
         
