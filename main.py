@@ -33,7 +33,7 @@ def main():
                           'temperature',
                           'coastlines',
                           'ice',
-                          'prec', # Precipitation
+                          'prec',
                           'population',
                           'labels',
                           'icons',
@@ -42,6 +42,39 @@ def main():
                           'ruler',
                           'coastline'
                           ]
+    
+    template_biomes_map = [ 
+                                                     'ocean',
+                          'lakes',
+                        #   'landmass',
+                          'texture',
+                          'terrs',
+                          'biomes',
+                          'cells',
+                          'gridOverlay',
+                          'coordinates',
+                          'compass',
+                          'rivers',
+                          'terrain',
+                          'relig',
+                          'cults',
+                          'regions',
+                          'provs',
+                          'zones',
+                          'borders',
+                          'routes',
+                          'temperature',
+                          'coastlines',
+                          'ice',
+                          'prec',
+                          'population',
+                          'labels',
+                          'icons',
+                          'armies',
+                          'markers',
+                          'ruler',
+                          'coastline'
+                           ]
     
     root = modeling_map.remove_multiple_layers(root, template_empty_map)
 
@@ -52,9 +85,9 @@ def main():
     # Saving the new map
     tree.write('fantasy_map_empty.svg', encoding='utf-8', xml_declaration=True)
     
-                    
-        
+
 if __name__ == "__main__":
+  
     main()
     
     
